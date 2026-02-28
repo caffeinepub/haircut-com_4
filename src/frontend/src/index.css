@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+
+    /* Gold & Charcoal Premium Palette */
+    --background: 0.98 0.005 80;
+    --foreground: 0.18 0.015 60;
+    --card: 1 0 0;
+    --card-foreground: 0.18 0.015 60;
+    --popover: 1 0 0;
+    --popover-foreground: 0.18 0.015 60;
+    --primary: 0.72 0.12 75;
+    --primary-foreground: 0.12 0.01 60;
+    --secondary: 0.95 0.01 80;
+    --secondary-foreground: 0.25 0.02 60;
+    --muted: 0.94 0.008 80;
+    --muted-foreground: 0.52 0.02 60;
+    --accent: 0.72 0.12 75;
+    --accent-foreground: 0.12 0.01 60;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.88 0.01 80;
+    --input: 0.88 0.01 80;
+    --ring: 0.72 0.12 75;
+    --chart-1: 0.72 0.12 75;
+    --chart-2: 0.6 0.118 184.704;
+    --chart-3: 0.398 0.07 227.392;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+    --sidebar: 0.985 0 0;
+    --sidebar-foreground: 0.18 0.015 60;
+    --sidebar-primary: 0.72 0.12 75;
+    --sidebar-primary-foreground: 0.12 0.01 60;
+    --sidebar-accent: 0.94 0.008 80;
+    --sidebar-accent-foreground: 0.25 0.02 60;
+    --sidebar-border: 0.88 0.01 80;
+    --sidebar-ring: 0.72 0.12 75;
+
+    /* Custom tokens */
+    --gold: oklch(0.72 0.12 75);
+    --gold-light: oklch(0.88 0.08 80);
+    --gold-dark: oklch(0.55 0.14 72);
+    --charcoal: oklch(0.22 0.01 60);
+    --charcoal-light: oklch(0.32 0.01 60);
+    --off-white: oklch(0.98 0.005 80);
+  }
+
+  .dark {
+    --background: 0.14 0.01 60;
+    --foreground: 0.95 0.005 80;
+    --card: 0.19 0.012 60;
+    --card-foreground: 0.95 0.005 80;
+    --popover: 0.22 0.012 60;
+    --popover-foreground: 0.95 0.005 80;
+    --primary: 0.72 0.12 75;
+    --primary-foreground: 0.12 0.01 60;
+    --secondary: 0.25 0.015 60;
+    --secondary-foreground: 0.92 0.005 80;
+    --muted: 0.25 0.015 60;
+    --muted-foreground: 0.65 0.015 70;
+    --accent: 0.72 0.12 75;
+    --accent-foreground: 0.12 0.01 60;
+    --destructive: 0.704 0.191 22.216;
+    --destructive-foreground: 0.205 0 0;
+    --border: 1 0 0 / 10%;
+    --input: 1 0 0 / 12%;
+    --ring: 0.72 0.12 75;
+    --chart-1: 0.72 0.12 75;
+    --chart-2: 0.696 0.17 162.48;
+    --chart-3: 0.769 0.188 70.08;
+    --chart-4: 0.627 0.265 303.9;
+    --chart-5: 0.645 0.246 16.439;
+    --sidebar: 0.19 0.012 60;
+    --sidebar-foreground: 0.95 0.005 80;
+    --sidebar-primary: 0.72 0.12 75;
+    --sidebar-primary-foreground: 0.12 0.01 60;
+    --sidebar-accent: 0.25 0.015 60;
+    --sidebar-accent-foreground: 0.92 0.005 80;
+    --sidebar-border: 1 0 0 / 10%;
+    --sidebar-ring: 0.72 0.12 75;
+
+    --gold: oklch(0.72 0.12 75);
+    --gold-light: oklch(0.88 0.08 80);
+    --gold-dark: oklch(0.55 0.14 72);
+    --charcoal: oklch(0.22 0.01 60);
+    --charcoal-light: oklch(0.32 0.01 60);
+    --off-white: oklch(0.98 0.005 80);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Playfair Display', serif;
+  }
+
+  .text-gold {
+    color: var(--gold);
+  }
+
+  .bg-gold {
+    background-color: var(--gold);
+  }
+
+  .border-gold {
+    border-color: var(--gold);
+  }
+
+  .gradient-gold {
+    background: linear-gradient(135deg, oklch(0.72 0.12 75), oklch(0.82 0.1 82), oklch(0.65 0.14 70));
+  }
+
+  .gradient-charcoal {
+    background: linear-gradient(135deg, oklch(0.22 0.01 60), oklch(0.28 0.015 65));
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5;
+  }
+
+  .btn-gold {
+    background: linear-gradient(135deg, oklch(0.72 0.12 75), oklch(0.65 0.14 70));
+    color: oklch(0.12 0.01 60);
+    @apply font-semibold transition-all duration-200 hover:opacity-90 active:scale-95;
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 0 0 oklch(0.72 0.12 75 / 0.4); }
+  50% { box-shadow: 0 0 0 8px oklch(0.72 0.12 75 / 0); }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, oklch(0.92 0.005 80) 25%, oklch(0.96 0.008 82) 50%, oklch(0.92 0.005 80) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.dark .animate-shimmer {
+  background: linear-gradient(90deg, oklch(0.22 0.01 60) 25%, oklch(0.28 0.015 65) 50%, oklch(0.22 0.01 60) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out forwards;
+}
+
+.animate-pulse-gold {
+  animation: pulse-gold 2s infinite;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: oklch(0.72 0.12 75 / 0.4);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.72 0.12 75 / 0.7);
+}
