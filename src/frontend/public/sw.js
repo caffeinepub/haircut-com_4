@@ -1,4 +1,4 @@
-const CACHE_NAME = 'haircut-v5';
+const CACHE_NAME = 'haircut-v7';
 const STATIC_ASSETS = [
   '/',
   '/manifest.json',

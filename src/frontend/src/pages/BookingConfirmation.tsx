@@ -1,7 +1,7 @@
-import React from 'react';
-import { useNavigate } from '@tanstack/react-router';
-import { Button } from '@/components/ui/button';
-import { CheckCircle, Calendar, Home } from 'lucide-react';
+import { Button } from "@/components/ui/button";
+import { useNavigate } from "@tanstack/react-router";
+import { Calendar, CheckCircle, Home } from "lucide-react";
+import React from "react";
 
 export function BookingConfirmation() {
   const navigate = useNavigate();
@@ -14,13 +14,20 @@ export function BookingConfirmation() {
           </div>
         </div>
         <div>
-          <h1 className="text-2xl font-bold text-foreground mb-2">Booking Confirmed! 🎉</h1>
-          <p className="text-muted-foreground">Your appointment has been successfully booked. You'll receive a confirmation shortly.</p>
+          <h1 className="text-2xl font-bold text-foreground mb-2">
+            Booking Confirmed! 🎉
+          </h1>
+          <p className="text-muted-foreground">
+            Your appointment has been successfully booked. You'll receive a
+            confirmation shortly.
+          </p>
         </div>
         <div className="bg-card border border-border rounded-2xl p-5 text-left space-y-3">
           <div className="flex justify-between text-sm">
             <span className="text-muted-foreground">Booking ID</span>
-            <span className="font-mono font-medium">#{Date.now().toString().slice(-8)}</span>
+            <span className="font-mono font-medium">
+              #{Date.now().toString().slice(-8)}
+            </span>
           </div>
           <div className="flex justify-between text-sm">
             <span className="text-muted-foreground">Status</span>
@@ -28,10 +35,17 @@ export function BookingConfirmation() {
           </div>
         </div>
         <div className="flex gap-3">
-          <Button variant="outline" onClick={() => navigate({ to: '/bookings' })} className="flex-1 gap-2 rounded-xl">
+          <Button
+            variant="outline"
+            onClick={() => navigate({ to: "/bookings" })}
+            className="flex-1 gap-2 rounded-xl"
+          >
             <Calendar className="w-4 h-4" /> My Bookings
           </Button>
-          <Button onClick={() => navigate({ to: '/' })} className="btn-gold flex-1 gap-2 rounded-xl">
+          <Button
+            onClick={() => navigate({ to: "/" })}
+            className="btn-gold flex-1 gap-2 rounded-xl"
+          >
             <Home className="w-4 h-4" /> Home
           </Button>
         </div>

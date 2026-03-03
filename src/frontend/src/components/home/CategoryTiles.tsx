@@ -1,12 +1,28 @@
-import React from 'react';
-import { useNavigate } from '@tanstack/react-router';
-import { useApp } from '../../contexts/AppContext';
+import { useNavigate } from "@tanstack/react-router";
+import React from "react";
+import { useApp } from "../../contexts/AppContext";
 
 const categories = [
-  { name: 'Men', image: '/assets/generated/category-men.dim_400x300.jpg', label: 'men' },
-  { name: 'Women', image: '/assets/generated/category-women.dim_400x300.jpg', label: 'women' },
-  { name: 'Kids', image: '/assets/generated/category-kids.dim_400x300.jpg', label: 'kids' },
-  { name: 'Unisex', image: '/assets/generated/category-unisex.dim_400x300.jpg', label: 'unisex' },
+  {
+    name: "Men",
+    image: "/assets/generated/category-men.dim_400x300.jpg",
+    label: "men",
+  },
+  {
+    name: "Women",
+    image: "/assets/generated/category-women.dim_400x300.jpg",
+    label: "women",
+  },
+  {
+    name: "Kids",
+    image: "/assets/generated/category-kids.dim_400x300.jpg",
+    label: "kids",
+  },
+  {
+    name: "Unisex",
+    image: "/assets/generated/category-unisex.dim_400x300.jpg",
+    label: "unisex",
+  },
 ];
 
 export function CategoryTiles() {
@@ -15,11 +31,16 @@ export function CategoryTiles() {
 
   return (
     <div className="grid grid-cols-4 gap-3 md:gap-4">
-      {categories.map(cat => (
-                  <button
+      {categories.map((cat) => (
+        <button
           type="button"
           key={cat.name}
-          onClick={() => navigate({ to: '/search', search: { category: cat.name, location: undefined } })}
+          onClick={() =>
+            navigate({
+              to: "/search",
+              search: { category: cat.name, location: undefined },
+            })
+          }
           className="group flex flex-col items-center gap-2 p-3 rounded-2xl bg-card border border-border hover:border-gold-400 hover:shadow-gold transition-all duration-300 hover:-translate-y-1 active:scale-95"
         >
           <div className="w-14 h-14 md:w-20 md:h-20 rounded-xl overflow-hidden bg-charcoal-700">

@@ -1,9 +1,9 @@
-import React from 'react';
-import { Outlet } from '@tanstack/react-router';
-import { TopNav } from './TopNav';
-import { BottomNav } from './BottomNav';
-import Footer from './Footer';
-import { Toaster } from '@/components/ui/sonner';
+import { Toaster } from "@/components/ui/sonner";
+import { Outlet } from "@tanstack/react-router";
+import React from "react";
+import { BottomNav } from "./BottomNav";
+import Footer from "./Footer";
+import { TopNav } from "./TopNav";
 
 export function Layout() {
   return (

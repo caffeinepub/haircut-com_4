@@ -1,11 +1,11 @@
-import { useEffect } from 'react';
-import { Link } from '@tanstack/react-router';
-import { CheckCircle } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Button } from "@/components/ui/button";
+import { Link } from "@tanstack/react-router";
+import { CheckCircle } from "lucide-react";
+import { useEffect } from "react";
 
 export default function PaymentSuccess() {
   useEffect(() => {
-    document.title = 'Payment Successful - Haircut.com';
+    document.title = "Payment Successful - Haircut.com";
   }, []);
 
   return (
@@ -13,9 +13,12 @@ export default function PaymentSuccess() {
       <div className="max-w-md w-full text-center">
         <div className="bg-card border border-border rounded-2xl p-10">
           <CheckCircle className="w-20 h-20 text-green-500 mx-auto mb-6" />
-          <h1 className="text-3xl font-bold text-foreground mb-3">Payment Successful!</h1>
+          <h1 className="text-3xl font-bold text-foreground mb-3">
+            Payment Successful!
+          </h1>
           <p className="text-muted-foreground mb-8">
-            Your booking has been confirmed. You'll receive a confirmation notification shortly.
+            Your booking has been confirmed. You'll receive a confirmation
+            notification shortly.
           </p>
           <div className="space-y-3">
             <Link to="/bookings">

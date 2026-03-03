@@ -1,10 +1,16 @@
-export type Gender = 'Male' | 'Female' | 'Kids' | 'Unisex';
+export type Gender = "Male" | "Female" | "Kids" | "Unisex";
 
-export type BookingStatus = 'Pending' | 'Accepted' | 'Declined' | 'Completed' | 'Cancelled' | 'No-show';
+export type BookingStatus =
+  | "Pending"
+  | "Accepted"
+  | "Declined"
+  | "Completed"
+  | "Cancelled"
+  | "No-show";
 
-export type SalonCategory = 'Men' | 'Women' | 'Kids' | 'Unisex';
+export type SalonCategory = "Men" | "Women" | "Kids" | "Unisex";
 
-export type SalonApprovalStatus = 'Pending' | 'Approved' | 'Rejected';
+export type SalonApprovalStatus = "Pending" | "Approved" | "Rejected";
 
 export interface UserProfile {
   id: string;
@@ -12,7 +18,7 @@ export interface UserProfile {
   gender: Gender;
   address: string;
   profilePhoto?: string;
-  role: 'customer' | 'owner' | 'admin';
+  role: "customer" | "owner" | "admin";
   referralCode: string;
   membershipActive: boolean;
   membershipExpiry?: string;
@@ -95,7 +101,7 @@ export interface Booking {
   date: string;
   timeSlot: string;
   status: BookingStatus;
-  paymentStatus: 'Pending' | 'Paid' | 'Refunded';
+  paymentStatus: "Pending" | "Paid" | "Refunded";
   totalAmount: number;
   couponCode?: string;
   discountAmount?: number;
@@ -117,7 +123,7 @@ export interface Post {
   authorId: string;
   authorName: string;
   authorPhoto?: string;
-  authorType: 'customer' | 'owner';
+  authorType: "customer" | "owner";
   salonId?: string;
   imageUrl?: string;
   caption: string;
@@ -140,7 +146,7 @@ export interface Comment {
 
 export interface Transaction {
   id: string;
-  type: 'credit' | 'debit';
+  type: "credit" | "debit";
   description: string;
   amount: number;
   date: string;
@@ -150,7 +156,7 @@ export interface Transaction {
 export interface Coupon {
   id: string;
   code: string;
-  discountType: 'flat' | 'percent';
+  discountType: "flat" | "percent";
   discountValue: number;
   minCartValue: number;
   expiryDate: string;
@@ -173,7 +179,7 @@ export interface Payout {
   salonName: string;
   amount: number;
   period: string;
-  status: 'Pending' | 'Processed';
+  status: "Pending" | "Processed";
   createdAt: string;
 }
 
@@ -184,7 +190,7 @@ export interface Dispute {
   salonName: string;
   reason: string;
   amount: number;
-  status: 'Open' | 'Resolved' | 'Refunded';
+  status: "Open" | "Resolved" | "Refunded";
   createdAt: string;
 }
 

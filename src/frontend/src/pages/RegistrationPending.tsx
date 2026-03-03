@@ -1,7 +1,7 @@
-import React from 'react';
-import { useNavigate } from '@tanstack/react-router';
-import { Button } from '@/components/ui/button';
-import { Clock, Home, CheckCircle } from 'lucide-react';
+import { Button } from "@/components/ui/button";
+import { useNavigate } from "@tanstack/react-router";
+import { CheckCircle, Clock, Home } from "lucide-react";
+import React from "react";
 
 export function RegistrationPending() {
   const navigate = useNavigate();
@@ -16,9 +16,12 @@ export function RegistrationPending() {
         </div>
 
         <div>
-          <h1 className="text-2xl font-bold text-foreground mb-2">Registration Submitted!</h1>
+          <h1 className="text-2xl font-bold text-foreground mb-2">
+            Registration Submitted!
+          </h1>
           <p className="text-muted-foreground">
-            Your salon registration is under review. Our team will verify your details and approve your listing within 24–48 hours.
+            Your salon registration is under review. Our team will verify your
+            details and approve your listing within 24–48 hours.
           </p>
         </div>
 
@@ -26,14 +29,16 @@ export function RegistrationPending() {
           <h3 className="font-semibold text-foreground">What happens next?</h3>
           <div className="space-y-2">
             {[
-              'Our team reviews your salon details',
-              'Verification of documents (if submitted)',
-              'Approval notification sent to you',
-              'Your salon goes live on Haircut.com',
-            ].map((step, i) => (
-              <div key={i} className="flex items-start gap-3">
+              "Our team reviews your salon details",
+              "Verification of documents (if submitted)",
+              "Approval notification sent to you",
+              "Your salon goes live on Haircut.com",
+            ].map((step, stepIdx) => (
+              <div key={step} className="flex items-start gap-3">
                 <div className="w-6 h-6 rounded-full bg-gold-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <span className="text-xs font-bold text-gold-600">{i + 1}</span>
+                  <span className="text-xs font-bold text-gold-600">
+                    {stepIdx + 1}
+                  </span>
                 </div>
                 <p className="text-sm text-muted-foreground">{step}</p>
               </div>
@@ -50,7 +55,10 @@ export function RegistrationPending() {
           </div>
         </div>
 
-        <Button onClick={() => navigate({ to: '/' })} className="btn-gold w-full gap-2 rounded-xl">
+        <Button
+          onClick={() => navigate({ to: "/" })}
+          className="btn-gold w-full gap-2 rounded-xl"
+        >
           <Home className="w-4 h-4" />
           Return to Home
         </Button>

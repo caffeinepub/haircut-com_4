@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -108,7 +108,7 @@
 
 @layer utilities {
   .font-display {
-    font-family: 'Playfair Display', serif;
+    font-family: "Playfair Display", serif;
   }
 
   .text-gold {
@@ -124,11 +124,20 @@
   }
 
   .gradient-gold {
-    background: linear-gradient(135deg, oklch(0.72 0.12 75), oklch(0.82 0.1 82), oklch(0.65 0.14 70));
+    background: linear-gradient(
+      135deg,
+      oklch(0.72 0.12 75),
+      oklch(0.82 0.1 82),
+      oklch(0.65 0.14 70)
+    );
   }
 
   .gradient-charcoal {
-    background: linear-gradient(135deg, oklch(0.22 0.01 60), oklch(0.28 0.015 65));
+    background: linear-gradient(
+      135deg,
+      oklch(0.22 0.01 60),
+      oklch(0.28 0.015 65)
+    );
   }
 
   .card-hover {
@@ -136,40 +145,75 @@
   }
 
   .btn-gold {
-    background: linear-gradient(135deg, oklch(0.72 0.12 75), oklch(0.65 0.14 70));
+    background: linear-gradient(
+      135deg,
+      oklch(0.72 0.12 75),
+      oklch(0.65 0.14 70)
+    );
     color: oklch(0.12 0.01 60);
     @apply font-semibold transition-all duration-200 hover:opacity-90 active:scale-95;
   }
 }
 
 @keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes slideUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes pulse-gold {
-  0%, 100% { box-shadow: 0 0 0 0 oklch(0.72 0.12 75 / 0.4); }
-  50% { box-shadow: 0 0 0 8px oklch(0.72 0.12 75 / 0); }
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 oklch(0.72 0.12 75 / 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px oklch(0.72 0.12 75 / 0);
+  }
 }
 
 .animate-shimmer {
-  background: linear-gradient(90deg, oklch(0.92 0.005 80) 25%, oklch(0.96 0.008 82) 50%, oklch(0.92 0.005 80) 75%);
+  background: linear-gradient(
+    90deg,
+    oklch(0.92 0.005 80) 25%,
+    oklch(0.96 0.008 82) 50%,
+    oklch(0.92 0.005 80) 75%
+  );
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
 }
 
 .dark .animate-shimmer {
-  background: linear-gradient(90deg, oklch(0.22 0.01 60) 25%, oklch(0.28 0.015 65) 50%, oklch(0.22 0.01 60) 75%);
+  background: linear-gradient(
+    90deg,
+    oklch(0.22 0.01 60) 25%,
+    oklch(0.28 0.015 65) 50%,
+    oklch(0.22 0.01 60) 75%
+  );
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
 }

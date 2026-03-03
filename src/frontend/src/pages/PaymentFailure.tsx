@@ -1,11 +1,11 @@
-import { useEffect } from 'react';
-import { Link } from '@tanstack/react-router';
-import { XCircle } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Button } from "@/components/ui/button";
+import { Link } from "@tanstack/react-router";
+import { XCircle } from "lucide-react";
+import { useEffect } from "react";
 
 export default function PaymentFailure() {
   useEffect(() => {
-    document.title = 'Payment Failed - Haircut.com';
+    document.title = "Payment Failed - Haircut.com";
   }, []);
 
   return (
@@ -13,9 +13,12 @@ export default function PaymentFailure() {
       <div className="max-w-md w-full text-center">
         <div className="bg-card border border-border rounded-2xl p-10">
           <XCircle className="w-20 h-20 text-destructive mx-auto mb-6" />
-          <h1 className="text-3xl font-bold text-foreground mb-3">Payment Failed</h1>
+          <h1 className="text-3xl font-bold text-foreground mb-3">
+            Payment Failed
+          </h1>
           <p className="text-muted-foreground mb-8">
-            Your payment could not be processed. Please try again or use a different payment method.
+            Your payment could not be processed. Please try again or use a
+            different payment method.
           </p>
           <div className="space-y-3">
             <Link to="/search">

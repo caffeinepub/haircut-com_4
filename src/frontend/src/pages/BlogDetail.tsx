@@ -1,50 +1,96 @@
-import { useEffect } from 'react';
-import { useParams, Link } from '@tanstack/react-router';
-import { Skeleton } from '@/components/ui/skeleton';
-import { Button } from '@/components/ui/button';
-import { ArrowLeft, Calendar, User } from 'lucide-react';
-import { useGetBlogPost } from '../hooks/useQueries';
-import { setPageTitle, setMetaDescription, setOpenGraphTags } from '../utils/seo';
+import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
+import { Link, useParams } from "@tanstack/react-router";
+import { ArrowLeft, Calendar, User } from "lucide-react";
+import { useEffect } from "react";
+import { useGetBlogPost } from "../hooks/useQueries";
+import {
+  setMetaDescription,
+  setOpenGraphTags,
+  setPageTitle,
+} from "../utils/seo";
 
 function formatDate(ts: number | bigint): string {
-  const ms = typeof ts === 'bigint' ? Number(ts) / 1_000_000 : ts;
-  return new Date(ms).toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' });
+  const ms = typeof ts === "bigint" ? Number(ts) / 1_000_000 : ts;
+  return new Date(ms).toLocaleDateString("en-IN", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
 }
 
 function SimpleMarkdown({ content }: { content: string }) {
-  const lines = content.split('\n');
+  // Build keyed line objects to avoid array-index-as-key
+  const lines = content.split("\n").map((text, n) => ({
+    key: `line-${n}`,
+    text,
+  }));
   return (
     <div className="prose prose-invert max-w-none">
-      {lines.map((line, i) => {
-        if (line.startsWith('# ')) return <h1 key={i} className="text-3xl font-bold text-foreground mt-8 mb-4">{line.slice(2)}</h1>;
-        if (line.startsWith('## ')) return <h2 key={i} className="text-2xl font-semibold text-foreground mt-6 mb-3">{line.slice(3)}</h2>;
-        if (line.startsWith('### ')) return <h3 key={i} className="text-xl font-semibold text-foreground mt-4 mb-2">{line.slice(4)}</h3>;
-        if (line.startsWith('- ')) return <li key={i} className="text-muted-foreground ml-4 mb-1">{line.slice(2)}</li>;
-        if (line.trim() === '') return <br key={i} />;
-        return <p key={i} className="text-muted-foreground mb-3 leading-relaxed">{line}</p>;
+      {lines.map(({ key, text }) => {
+        if (text.startsWith("# "))
+          return (
+            <h1
+              key={key}
+              className="text-3xl font-bold text-foreground mt-8 mb-4"
+            >
+              {text.slice(2)}
+            </h1>
+          );
+        if (text.startsWith("## "))
+          return (
+            <h2
+              key={key}
+              className="text-2xl font-semibold text-foreground mt-6 mb-3"
+            >
+              {text.slice(3)}
+            </h2>
+          );
+        if (text.startsWith("### "))
+          return (
+            <h3
+              key={key}
+              className="text-xl font-semibold text-foreground mt-4 mb-2"
+            >
+              {text.slice(4)}
+            </h3>
+          );
+        if (text.startsWith("- "))
+          return (
+            <li key={key} className="text-muted-foreground ml-4 mb-1">
+              {text.slice(2)}
+            </li>
+          );
+        if (text.trim() === "") return <br key={key} />;
+        return (
+          <p key={key} className="text-muted-foreground mb-3 leading-relaxed">
+            {text}
+          </p>
+        );
       })}
     </div>
   );
 }
 
 export default function BlogDetail() {
-  const { postId } = useParams({ from: '/blog/$postId' });
+  const { postId } = useParams({ from: "/blog/$postId" });
   const { data: post, isLoading } = useGetBlogPost(postId);
 
   useEffect(() => {
     if (post) {
       setPageTitle(`${post.title} - Haircut.com Blog`);
       setMetaDescription(post.excerpt || post.title);
-      setOpenGraphTags(post.title, post.excerpt || '', post.coverImageUrl);
+      setOpenGraphTags(post.title, post.excerpt || "", post.coverImageUrl);
     }
   }, [post]);
 
   const samplePost = {
     id: postId,
-    title: 'Top 10 Haircut Trends for 2026',
-    excerpt: 'Discover the hottest haircut styles dominating salons across India this year.',
-    coverImageUrl: '/assets/generated/blog-cover-default.dim_1200x600.png',
-    author: 'Jikesh Kumar',
+    title: "Top 10 Haircut Trends for 2026",
+    excerpt:
+      "Discover the hottest haircut styles dominating salons across India this year.",
+    coverImageUrl: "/assets/generated/blog-cover-default.dim_1200x600.png",
+    author: "Jikesh Kumar",
     publishedAt: Date.now(),
     body: `# Top 10 Haircut Trends for 2026
 
@@ -72,7 +118,7 @@ Curtain bangs have made a massive comeback, framing the face beautifully for all
 Visit Haircut.com to find the best salons near you and book your appointment today!`,
   };
 
-  const displayPost = post || (postId.startsWith('sample') ? samplePost : null);
+  const displayPost = post || (postId.startsWith("sample") ? samplePost : null);
 
   if (isLoading) {
     return (
@@ -82,7 +128,9 @@ Visit Haircut.com to find the best salons near you and book your appointment tod
         <Skeleton className="h-10 w-3/4 mb-4" />
         <Skeleton className="h-4 w-1/2 mb-8" />
         <div className="space-y-3">
-          {[1, 2, 3, 4, 5].map((i) => <Skeleton key={i} className="h-4 w-full" />)}
+          {[1, 2, 3, 4, 5].map((i) => (
+            <Skeleton key={i} className="h-4 w-full" />
+          ))}
         </div>
       </div>
     );
@@ -91,8 +139,12 @@ Visit Haircut.com to find the best salons near you and book your appointment tod
   if (!displayPost) {
     return (
       <div className="max-w-3xl mx-auto px-4 py-24 text-center">
-        <h1 className="text-3xl font-bold text-foreground mb-4">Post Not Found</h1>
-        <p className="text-muted-foreground mb-8">The blog post you're looking for doesn't exist.</p>
+        <h1 className="text-3xl font-bold text-foreground mb-4">
+          Post Not Found
+        </h1>
+        <p className="text-muted-foreground mb-8">
+          The blog post you're looking for doesn't exist.
+        </p>
         <Link to="/blog">
           <Button variant="outline">
             <ArrowLeft className="w-4 h-4 mr-2" />
@@ -107,7 +159,10 @@ Visit Haircut.com to find the best salons near you and book your appointment tod
     <div className="min-h-screen bg-background">
       <div className="max-w-3xl mx-auto px-4 py-12">
         <Link to="/blog">
-          <Button variant="ghost" className="mb-8 text-muted-foreground hover:text-gold">
+          <Button
+            variant="ghost"
+            className="mb-8 text-muted-foreground hover:text-gold"
+          >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Blog
           </Button>
@@ -123,7 +178,9 @@ Visit Haircut.com to find the best salons near you and book your appointment tod
           </div>
         )}
 
-        <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">{displayPost.title}</h1>
+        <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          {displayPost.title}
+        </h1>
 
         <div className="flex items-center gap-6 text-sm text-muted-foreground mb-8 pb-8 border-b border-border">
           <span className="flex items-center gap-2">
