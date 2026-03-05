@@ -1,12 +1,13 @@
 import { cn } from "@/lib/utils";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Calendar, Home, Rss, User, Wallet } from "lucide-react";
+import { Calendar, Clapperboard, Home, Rss, User, Wallet } from "lucide-react";
 import React from "react";
 
 const tabs = [
   { to: "/", icon: Home, label: "home" },
-  { to: "/bookings", icon: Calendar, label: "bookings" },
+  { to: "/bookings", icon: Calendar, label: "booking" },
   { to: "/feed", icon: Rss, label: "feed" },
+  { to: "/reels", icon: Clapperboard, label: "reel" },
   { to: "/wallet", icon: Wallet, label: "wallet" },
   { to: "/profile", icon: User, label: "profile" },
 ];
@@ -24,7 +25,7 @@ export function BottomNav() {
       }}
       data-ocid="bottom_nav"
     >
-      <div className="flex items-center justify-around h-16 px-2">
+      <div className="flex items-center justify-around h-16 px-1">
         {tabs.map((tab) => {
           const Icon = tab.icon;
           const isActive =
@@ -36,10 +37,10 @@ export function BottomNav() {
               key={tab.to}
               to={tab.to}
               data-ocid={`bottom_nav.${tab.label}.link`}
-              className="flex flex-col items-center justify-center gap-1 px-3 py-1.5 rounded-xl transition-all duration-200 min-w-[60px] active:scale-95"
+              className="flex flex-col items-center justify-center gap-0.5 px-1.5 py-1.5 rounded-xl transition-all duration-200 flex-1 active:scale-95"
             >
               <Icon
-                className="w-[22px] h-[22px] transition-all duration-200"
+                className="w-[20px] h-[20px] transition-all duration-200"
                 style={{
                   color: isActive
                     ? "oklch(0.72 0.12 75)"

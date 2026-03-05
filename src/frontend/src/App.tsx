@@ -27,6 +27,7 @@ import Mission from "./pages/Mission";
 import PaymentFailure from "./pages/PaymentFailure";
 import PaymentSuccess from "./pages/PaymentSuccess";
 import Privacy from "./pages/Privacy";
+import Reels from "./pages/Reels";
 import { RegistrationPending } from "./pages/RegistrationPending";
 import { SalonDetail } from "./pages/SalonDetail";
 import { SalonOwnerDashboard } from "./pages/SalonOwnerDashboard";
@@ -222,6 +223,11 @@ const socialFeedRoute = createRoute({
   path: "/feed",
   component: SocialFeed,
 });
+const reelsRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/reels",
+  component: Reels,
+});
 const walletRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/wallet",
@@ -300,6 +306,7 @@ const routeTree = rootRoute.addChildren([
   registrationPendingRoute,
   adminPanelRoute,
   socialFeedRoute,
+  reelsRoute,
   walletRoute,
   blogRoute,
   blogDetailRoute,
