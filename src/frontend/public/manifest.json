@@ -3,7 +3,7 @@
   "short_name": "Haircut.com",
   "description": "Discover and book salon appointments across India",
   "theme_color": "#D4AF37",
-  "background_color": "#1a1a1a",
+  "background_color": "#D4AF37",
   "display": "standalone",
   "orientation": "portrait",
   "start_url": "/",
@@ -12,25 +12,25 @@
   "categories": ["lifestyle", "beauty", "health"],
   "icons": [
     {
-      "src": "/assets/brand-logo-192.png",
+      "src": "/assets/generated/pwa-icon-192-fullbleed.dim_192x192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/assets/brand-logo-192.png",
+      "src": "/assets/generated/pwa-icon-192-fullbleed.dim_192x192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "/assets/brand-logo-512.png",
+      "src": "/assets/generated/pwa-icon-512-fullbleed.dim_512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/assets/brand-logo-512.png",
+      "src": "/assets/generated/pwa-icon-512-fullbleed.dim_512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
@@ -41,13 +41,13 @@
       "name": "Browse Salons",
       "url": "/search",
       "description": "Find salons near you",
-      "icons": [{"src": "/assets/brand-logo-192.png", "sizes": "192x192"}]
+      "icons": [{"src": "/assets/generated/pwa-icon-192-fullbleed.dim_192x192.png", "sizes": "192x192"}]
     },
     {
       "name": "My Bookings",
       "url": "/bookings",
       "description": "View your bookings",
-      "icons": [{"src": "/assets/brand-logo-192.png", "sizes": "192x192"}]
+      "icons": [{"src": "/assets/generated/pwa-icon-192-fullbleed.dim_192x192.png", "sizes": "192x192"}]
     }
   ]
 }
