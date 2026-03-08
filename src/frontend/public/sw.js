@@ -1,9 +1,9 @@
-const CACHE_NAME = 'haircut-v9';
+const CACHE_NAME = 'haircut-v11';
 const STATIC_ASSETS = [
   '/',
   '/manifest.json',
-  '/assets/brand-logo-192.png',
-  '/assets/brand-logo-512.png',
+  '/assets/generated/pwa-icon-192.dim_192x192.png',
+  '/assets/generated/pwa-icon-512.dim_512x512.png',
   '/assets/generated/category-men.dim_200x200.jpg',
   '/assets/generated/category-women.dim_200x200.jpg',
   '/assets/generated/category-kids.dim_200x200.jpg',
@@ -105,7 +105,7 @@ self.addEventListener('fetch', (event) => {
                 </style>
               </head>
               <body>
-                <img src="/assets/brand-logo-192.png" alt="Haircut.com" onerror="this.style.display='none'" />
+                <img src="/assets/generated/pwa-icon-192.dim_192x192.png" alt="Haircut.com" onerror="this.style.display='none'" />
                 <div class="logo">Haircut.com</div>
                 <p>You are offline. Please check your internet connection and try again.</p>
                 <button onclick="window.location.reload()">Try Again</button>
